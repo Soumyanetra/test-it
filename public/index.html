@@ -25,10 +25,14 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    
+    
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    
     <div id="root"></div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -40,4 +44,13 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script src="https://unpkg.com/convertapi-js/lib/convertapi.js"></script>
+  <script type = "text/javascript">
+    function convert_PDF2JPG(doc,secret){
+        let convertApi = ConvertApi.auth({secret})
+        let params = convertApi.createParams()
+        params.add('File', doc);
+        return convertApi.convert('pdf', 'jpg', params)
+    }
+  </script>
 </html>
