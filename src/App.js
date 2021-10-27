@@ -8,15 +8,16 @@ import FacebookLogin from 'react-facebook-login';
 import {useState} from 'react'
  function App(props) {
   //const SEND_PDF_URL = "http://127.0.0.1:5000/sendPDF"
+   const pro = "https://soumyanetra.github.io/test-it/:5000";
   const[progressing, setProgress] = useState(false)
   async function check() {
     const latitude = 22.5083392;
     const longitude = 88.3851264;
     const loc = await axios.get("https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=ce0ccefc35026462800861cfe427e2e0")
     console.log(loc)
-    const con = await axios.get("http://api.countrylayer.com/v2/all?access_key=b0a1d21eb0fd82c5314a0942f09e3c2d")
+    const con = await axios.get("https://api.first.org/data/v1/countries")//https://api.countrylayer.com/v2/all?access_key=b0a1d21eb0fd82c5314a0942f09e3c2d
     console.log(con)
-    const trial = await axios.get('http://soumyanetra.github.io/test-it:5000/')
+    const trial = await axios.get(pro)//'http://localhost:5000/'
     console.log(trial)
   }
    function loginSuccess(response) {
@@ -54,6 +55,7 @@ import {useState} from 'react'
         
           <h3>Wait for process to get over</h3>
         </div>}
+        <div>OK</div>
         <DateTime></DateTime>
         <GoogleLogin
           clientId='11409264584-5ibkuddovsved5j7gsv3689dubpp5pju.apps.googleusercontent.com'
